@@ -1,0 +1,27 @@
+name: CARL
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  run-carl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.5.2
+
+      - name: Pull docker image
+        run: docker pull castimaging/carl-java-cli:latest
+        
+      - name: Run CARL
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+         cd ${{ github.workspace }}
+          git_folder=$(basename "$(git rev-parse --show-toplevel)") 
+          # The git folder name is mapped to the project name
+          docker run -v $(pwd):/fastScan/sourceCode castimaging/carl-java-cli carl $git_folder   
+
+          
