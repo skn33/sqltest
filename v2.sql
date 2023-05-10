@@ -7,7 +7,7 @@ INSERT IGNORE INTO vets VALUES (6, 'Sharon', 'Jenkins');
 
 INSERT IGNORE INTO specialties VALUES (5, 'radiology');
 INSERT IGNORE INTO specialties VALUES (2, 'surgery');
-INSERT IGNORE INTO specialties VALUES (3, 'dentistry');
+INSERT IGNORE INTO specialties VALUES (3, 'dent=istry');
 
 INSERT IGNORE INTO vet_specialties VALUES (10, 1);
 INSERT IGNORE INTO vet_specialties VALUES (3, 2);
